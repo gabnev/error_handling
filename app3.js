@@ -29,7 +29,24 @@ re = /Hel{2,}o/i; // letter followed by {n} occur at least n times
 re = /([0-9]x){3}/i; // making a repetition on a specific regex
 re = /^([0-9]x){3}$/i; // setting the specific start and ending parameters
 
-const str = '3x3x3x';
+// shorthand character classes
+re = /\w/; // word character - one letter, any number or _
+re = /\w+/; // + = one or more letter, any number or _
+re = /\W/; // W (uppercase) = ANYTHING BUT letter, any number or _
+re = /\d/; // d = any one number
+re = /\d+/; // d = any number 0 or more times
+re = /\D/; // D (uppercase) = ANYTHING BUT any number
+re = /\s/; // s = any whitespace character
+re = /\S/; // S (uppercase) = ANYTHUNG BUY any whitespace character
+re = /\S/; // S (uppercase) = ANYTHUNG BUY any whitespace character
+re = /Hell/i;
+re = /Hell\b/i; // word boundary
+
+// Assertions
+re = /x(?=y)/; // match x only if followed by y
+re = /x(?!y)/; // match x only if not followed by y
+
+const str = 'x';
 
 const result = re.exec(str);
 console.log(result);
