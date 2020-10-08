@@ -9,7 +9,27 @@ re = /h*llo/i; // * - Matches any character 0 o many times
 re = /gre?a?y/i; // * - Matches any character 0 o many times
 re = /gray\?/i; // * - Matches any character 0 o many times
 
-const str = 'gray?';
+// [] - character sets
+re = /gr[ae]y/i; // must be an A or E
+re = /[GF]ray/i; // must be a G or F
+re = /[^GF]ray/i; // oposite - match anything EXCEPT G or F
+re = /[A-Z]ray/; // Any uppercase letter
+re = /[a-z]ray/; // Any lowercase letter
+re = /[A-Za-z]ray/; // Any letter
+re = /[A-Z]ray/i; // Any letter
+re = /[0-9]ray/i; // Any number
+re = /[0-9][0-9]ray/i; // Any number - extend the index
+
+// {} - quantifiers
+re = /Hel{2}o/i; // letter followed by {n} occur n times
+re = /Hel{2,4}o/i; // letter followed by {n, m} occur between n - m times
+re = /Hel{2,}o/i; // letter followed by {n} occur at least n times
+
+// () - grouping
+re = /([0-9]x){3}/i; // making a repetition on a specific regex
+re = /^([0-9]x){3}$/i; // setting the specific start and ending parameters
+
+const str = '3x3x3x';
 
 const result = re.exec(str);
 console.log(result);
